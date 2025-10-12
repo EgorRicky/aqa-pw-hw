@@ -29,6 +29,8 @@ test.describe("smoke registration form", () => {
     };
     password: string;
     confirmPassword: string;
+    gender: string;
+    hobbie: string;
   }
 
   const credentials: ICredentials = {
@@ -47,7 +49,11 @@ test.describe("smoke registration form", () => {
     },
     password: "validPassword123",
     confirmPassword: "validPassword123",
+    gender: "male",
+    hobbie: "Travelling",
   };
+
+  const passLength = credentials.password.length;
 
   test("Should register with credentials", async ({ page }) => {
     const nameInput = page.locator('//input[@id="firstName"]');
@@ -68,6 +74,18 @@ test.describe("smoke registration form", () => {
     const submitButton = page.locator('//button[@type="submit"]');
     const registrationDetaislHeader = page.locator('//h2[text()="Registration Details"]');
 
+    const fullNameRes = page.locator('//*[@id="fullName"]');
+    const addressRes = page.locator('//*[@id="address"]');
+    const emaiRes = page.locator('//*[@id="email"]');
+    const phoneRes = page.locator('//*[@id="phone"]');
+    const countryRes = page.locator('//*[@id="country"]');
+    const genderRes = page.locator('//*[@id="gender"]');
+    const languageRes = page.locator('//*[@id="language"]');
+    const skillsRes = page.locator('//*[@id="skills"]');
+    const hobbiesRes = page.locator('//*[@id="hobbies"]');
+    const dobRes = page.locator('//*[@id="dateOfBirth"]');
+    const passwordRes = page.locator('//*[@id="password"]');
+
     await page.goto(url);
     await nameInput.fill(credentials.firstName);
     await lastNameInput.fill(credentials.lastName);
@@ -86,5 +104,20 @@ test.describe("smoke registration form", () => {
     await confirmPasswordInput.fill(credentials.confirmPassword);
     await submitButton.click();
     await expect(registrationDetaislHeader).toHaveText(HEADERS.REG_DETAILS);
+    await expect(fullNameRes).toHaveText(`${credentials.firstName} ${credentials.lastName}`);
+    await expect(addressRes).toHaveText(credentials.address);
+    await expect(emaiRes).toHaveText(credentials.email);
+    await expect(phoneRes).toHaveText(credentials.phone);
+    await expect(countryRes).toHaveText(credentials.country);
+    await expect(genderRes).toHaveText(credentials.gender);
+    await expect(languageRes).toHaveText(credentials.language);
+    await expect(skillsRes).toHaveText(credentials.skills);
+    await expect(hobbiesRes).toHaveText(credentials.hobbie);
+    await expect(dobRes).toHaveText(
+      `${credentials.dateOfBirth.day} ${credentials.dateOfBirth.month} ${credentials.dateOfBirth.year}`,
+    );
+    const maskOfPassw = (await passwordRes.textContent()) ?? "";
+    expect(maskOfPassw).toMatch(/^\*+$/);
+    expect(maskOfPassw.length).toBe(passLength);
   });
 });
