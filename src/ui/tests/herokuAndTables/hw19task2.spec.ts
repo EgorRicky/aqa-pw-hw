@@ -9,7 +9,7 @@
 
 import test, { expect } from "@playwright/test";
 import { type Page } from "@playwright/test";
-import tableUsers from "testData/tableUsersData";
+import tableUsers from "ui/testData/herokuAndTables/tableUsersData";
 
 async function getTableRow(page: Page, email: string): Promise<string[] | undefined> {
   await page.goto("https://anatoly-karpovich.github.io/test-automation-sandbox/");
