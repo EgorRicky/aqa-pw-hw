@@ -12,7 +12,7 @@ https://anatoly-karpovich.github.io/demo-login-form/
   Password: обязательное
 */
 import test, { expect } from "@playwright/test";
-import invalidCreds from "../../testData/herokuAndTables/registerData";
+import invalidCreds from "../../data/herokuAndTables/registerData";
 
 const url = "https://anatoly-karpovich.github.io/demo-login-form/";
 
