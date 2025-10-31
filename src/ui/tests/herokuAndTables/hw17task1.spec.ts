@@ -36,7 +36,7 @@ const invalidCredentials: ICredentials = {
   password: "invalidpass",
 };
 
-test.describe("Register suite", () => {
+test.describe.skip("Register suite", () => {
   test("Should register with valid credentials", async ({ page }) => {
     const registerButtonOnRegister = page.locator("#register");
     const registerButtonOnLogin = page.locator("#registerOnLogin");

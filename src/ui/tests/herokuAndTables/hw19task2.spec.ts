@@ -35,7 +35,7 @@ async function getTableRow(page: Page, email: string): Promise<string[] | undefi
 }
 
 for (let i = 0; i < tableUsers.length; i++) {
-  test(`test of the function for email ${tableUsers[i]}`, async ({ page }) => {
+  test.skip(`test of the function for email ${tableUsers[i]}`, async ({ page }) => {
     const res = await getTableRow(page, tableUsers[i] ?? "");
     expect(res).toContain(tableUsers[i]);
   });

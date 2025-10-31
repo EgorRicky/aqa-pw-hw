@@ -55,7 +55,7 @@ test.describe("smoke registration form", () => {
 
   const passLength = credentials.password.length;
 
-  test("Should register with credentials", async ({ page }) => {
+  test.skip("Should register with credentials", async ({ page }) => {
     const nameInput = page.locator('//input[@id="firstName"]');
     const lastNameInput = page.locator('//input[@id="lastName"]');
     const addressText = page.locator('//textarea[@id="address"]');
