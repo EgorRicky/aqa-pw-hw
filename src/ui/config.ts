@@ -1,5 +1,8 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 export const config = {
-  baseUrl: "http://localhost:8585",
-  login: "admin@example.com",
-  password: "admin123",
+  baseUrl: process.env.BASE_URL!,
+  login: process.env.LOGIN!,
+  password: process.env.PASSWORD!,
 };
