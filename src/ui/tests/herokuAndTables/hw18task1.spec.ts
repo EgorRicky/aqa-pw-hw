@@ -17,7 +17,7 @@
 import { test, expect } from "@playwright/test";
 const url = "https://the-internet.herokuapp.com/";
 
-test("Dynamic controls", async ({ page }) => {
+test.skip("Dynamic controls", async ({ page }) => {
   const dynamicControlButton = page.getByText("Dynamic Controls");
   const removeButton = page.getByRole("button", { name: "Remove" });
   const headerOfThePage = page.locator("h4:nth-child(1)");

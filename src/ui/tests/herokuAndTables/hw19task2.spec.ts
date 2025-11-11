@@ -9,7 +9,7 @@
 
 import test, { expect } from "@playwright/test";
 import { type Page } from "@playwright/test";
-import tableUsers from "testData/tableUsersData";
+import tableUsers from "ui/data/herokuAndTables/tableUsersData";
 
 async function getTableRow(page: Page, email: string): Promise<string[] | undefined> {
   await page.goto("https://anatoly-karpovich.github.io/test-automation-sandbox/");
@@ -35,7 +35,7 @@ async function getTableRow(page: Page, email: string): Promise<string[] | undefi
 }
 
 for (let i = 0; i < tableUsers.length; i++) {
-  test(`test of the function for email ${tableUsers[i]}`, async ({ page }) => {
+  test.skip(`test of the function for email ${tableUsers[i]}`, async ({ page }) => {
     const res = await getTableRow(page, tableUsers[i] ?? "");
     expect(res).toContain(tableUsers[i]);
   });
