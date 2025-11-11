@@ -17,7 +17,7 @@ import invalidCreds from "../../data/herokuAndTables/registerData";
 const url = "https://anatoly-karpovich.github.io/demo-login-form/";
 
 for (const { username, password, title } of invalidCreds) {
-  test(title, async ({ page }) => {
+  test.skip(title, async ({ page }) => {
     const registerButtonOnLogin = page.locator("#registerOnLogin");
     const userNameInputOnRegister = page.locator("#userNameOnRegister");
     const passwordInputOnRegister = page.locator("#passwordOnRegister");

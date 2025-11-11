@@ -7,3 +7,5 @@ export interface IProduct {
   amount: number;
   notes?: string;
 }
+
+export type ButtonActions = "Details" | "Delete" | "Edit";
