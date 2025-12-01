@@ -12,3 +12,7 @@ export interface IGetAllProductsResponse {
 export interface IProductResponse extends IResponseFields {
   Product: IProductFromResponse;
 }
+
+export interface IProductsResponse extends IResponseFields {
+  Products: IProductFromResponse[];
+}
