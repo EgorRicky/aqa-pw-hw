@@ -33,7 +33,6 @@ export function generateMetricsData(params?: Partial<IMetrics>): IMetrics {
   };
 }
 export const metricsData = generateMetricsData();
-console.log(metricsData);
 
 export const metricCases: ICreateMetricData[] = [
   {
