@@ -12,7 +12,8 @@ export abstract class SalesPortalPage extends BasePage {
     await expect(this.spinner).toHaveCount(0);
   }
 
-  async open() {
-    await this.page.goto(config.baseUrl);
+  async open(route?: string) {
+    if (route) await this.page.goto(config.baseUrl + route);
+    else await this.page.goto(config.baseUrl);
   }
 }

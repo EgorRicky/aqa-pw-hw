@@ -16,3 +16,5 @@ export interface IProductResponse extends IResponseFields {
 export interface IProductsResponse extends IResponseFields {
   Products: IProductFromResponse[];
 }
+
+export interface IProductDetails extends Required<IProduct>, ICreatedOn {}
