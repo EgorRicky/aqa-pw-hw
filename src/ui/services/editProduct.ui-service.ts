@@ -13,6 +13,7 @@ export class UpdateProductUIService {
   }
 
   async update(productData: IProduct) {
+    await this.addNewProductPage.waitForOpened();
     await this.addNewProductPage.fillForm(productData);
     await this.productsListPage.clickSaveEditProduct();
     await this.productsListPage.waitForOpened();
