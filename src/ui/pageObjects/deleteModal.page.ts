@@ -10,4 +10,8 @@ export class DeleteModal extends SalesPortalPage {
   async clickOnDeleteButton() {
     await this.deleteButton.click();
   }
+
+  async waitForClosed() {
+    await this.deleteButton.waitFor({ state: "hidden" });
+  }
 }
